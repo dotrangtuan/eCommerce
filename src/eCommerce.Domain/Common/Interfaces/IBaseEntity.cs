@@ -7,6 +7,6 @@ public interface IBaseEntity<TKey>
 }
 
 
-public interface IBaseEntity : IBaseEntity<Guid>
-{
-}
+// public interface IBaseEntity : IBaseEntity<Guid>
+// {
+// }

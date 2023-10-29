@@ -9,14 +9,14 @@ public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<Applicati
     {
         var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
         optionsBuilder
-            .UseNpgsql(@"Host=localhost:5432;Database=online_shop;Uid=postgres;Pwd=1", 
+            .UseSqlServer(@"Data Source=DESKTOP-4ADQOFL;Initial Catalog=eCommerce;integrated security=True;MultipleActiveResultSets=True", 
                 opts =>
                 {
                     opts.CommandTimeout((int)TimeSpan.FromMinutes(10).TotalSeconds); 
                 }
             );
         
-        var context = new ApplicationDbContext();
+        var context = new ApplicationDbContext(optionsBuilder.Options);
         
         return context;
     }

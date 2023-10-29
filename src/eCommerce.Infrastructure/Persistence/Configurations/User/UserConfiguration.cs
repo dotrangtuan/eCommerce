@@ -2,14 +2,14 @@ using eCommerce.Domain.Constants;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace eCommerce.Infrastructure.Persistence.Configurations.User;
+namespace eCommerce.Infrastructure.Persistence;
 
 public class UserConfiguration : IEntityTypeConfiguration<Domain.Entities.User>
 {
     public void Configure(EntityTypeBuilder<Domain.Entities.User> builder)
     {
         // Query
-        builder.HasQueryFilter(x => !x.IsDeleted);
+        builder.HasQueryFilter(u => !u.IsDeleted);
         
         // TableName
         builder.ToTable(TableName.User);
@@ -17,14 +17,8 @@ public class UserConfiguration : IEntityTypeConfiguration<Domain.Entities.User>
         // Key
         builder.HasKey(u => u.Id);
 
-        // Non - Index Clustered   
-        builder.HasIndex(u => u.Id);
-        
-        // Index Clustered 
-        builder.HasIndex(u => u.Username).IsUnique().IsClustered();
-
         // Property
-        builder.Property(u => u.Username).IsRequired().HasMaxLength(50);
+        builder.Property(u => u.UserName).IsRequired().HasMaxLength(50);
 
         builder.Property(u => u.PasswordHash).IsRequired().HasMaxLength(255);
 

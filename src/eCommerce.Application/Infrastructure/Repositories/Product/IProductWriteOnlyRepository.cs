@@ -1,6 +1,9 @@
-namespace eCommerce.Application.Infrastructure.Repositories.Product;
+using eCommerce.Application.Infrastructure.Persistence;
+using eCommerce.Domain.Entities;
 
-public class IProductWriteOnlyRepository
+namespace eCommerce.Application.Infrastructure;
+
+public interface IProductWriteOnlyRepository : IBaseWriteOnlyRepository<Product, IApplicationDbContext>
 {
     
 }

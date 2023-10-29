@@ -1,6 +1,6 @@
 namespace eCommerce.Api;
 
-public class ConfigureServices
+public static class ConfigureServices
 {
     
 }

@@ -8,7 +8,6 @@ public abstract class BaseEntity<TKey> :  IBaseEntity<TKey>
 {
     [System.ComponentModel.DataAnnotations.Key]
     public TKey Id { get; set; }
-    
     public bool IsDeleted { get; set; }
 
     public DateTime CreatedDate { get; set; } = DateHelper.Now;

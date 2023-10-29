@@ -1,6 +1,7 @@
-namespace eCommerce.Application.Infrastructure.UnitOfWork;
+namespace eCommerce.Application.Infrastructure;
 
-public class IUnitOfWork
+//unit of work pattern
+public interface IUnitOfWork : IDisposable
 {
-    
+    Task CommitAsync(CancellationToken cancellationToken = default);
 }
